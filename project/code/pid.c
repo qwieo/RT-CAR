@@ -1,7 +1,7 @@
 #include  "zf_common_headfile.h"
 #include "pid.h"
 
-#define  Max 6500
+#define  Max 5500
 #define Data_Max  6500
 #define N 6.2
 #define dt 0.005

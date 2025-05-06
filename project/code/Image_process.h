@@ -29,9 +29,10 @@ typedef struct image {
 
 extern image_t img_raw;
 extern image_t img_AP;
-
 int clip(int x, int low, int up);
+
 void draw_x(image_t *img, int x, int y, int len, uint8_t value);
+
 void draw_o(image_t *img, int x, int y, int radius, uint8_t value);
 
 void clone_image(image_t *img0, image_t *img1);
@@ -44,9 +45,8 @@ void adaptive_threshold
 void dilate3(image_t *img0, image_t *img1);
 // 3x3 erode,img0!=img1,The outermost pixel does not participate in the calculation
 void erode3(image_t *img0, image_t *img1);
-
-
-void draw(void);
+//draw debug image
+void debug_draw(void);
 
 
 
@@ -71,14 +71,13 @@ void nms_angle(float angle_in[], int num, float angle_out[], int kernel);
 
 extern uint8_t show[RESULT_ROW][RESULT_COL];
 extern uint8_t show0[RESULT_ROW][RESULT_COL];
+//
 extern int ipts0[POINTS_MAX_LEN][2];
 extern int ipts1[POINTS_MAX_LEN][2];
-//
 extern int ipts0_num, ipts1_num;
 //
 extern float rpts0b[POINTS_MAX_LEN][2];
 extern float rpts1b[POINTS_MAX_LEN][2];
-//
 extern int rpts0b_num, rpts1b_num;
 //
 extern float rpts0s[POINTS_MAX_LEN][2];
@@ -87,22 +86,29 @@ extern int rpts0s_num, rpts1s_num;
 //
 extern float rptsc0[POINTS_MAX_LEN][2];
 extern float rptsc1[POINTS_MAX_LEN][2];
-//
 extern int rptsc0_num, rptsc1_num;
+//
+extern float rptscs0[POINTS_MAX_LEN][2];
+extern float rptscs1[POINTS_MAX_LEN][2];
+extern int rptscs0_num, rptscs1_num;
 //
 extern float rpts0a[POINTS_MAX_LEN];
 extern float rpts1a[POINTS_MAX_LEN];
-//Counter of 
 extern int rpts0a_num, rpts1a_num;
-
-// Angle Change Rate Non-Maximum Suppression
+//
 extern float rpts0an[POINTS_MAX_LEN];
 extern float rpts1an[POINTS_MAX_LEN];
-//Counter of 
 extern int rpts0an_num, rpts1an_num;
-extern float rpts[100][2];
-extern int rpts_num;
+//
 extern int Lpt0_rpts0s_id, Lpt1_rpts1s_id;
 extern bool Lpt0_found, Lpt1_found;
-
+extern bool is_straight0,is_straight1;
+extern uint8_t compaste_id;
+enum box_position_type
+	{
+		none_box=0,
+		left_box,
+		right_box
+	};
+extern enum box_position_type boxe;
 #endif

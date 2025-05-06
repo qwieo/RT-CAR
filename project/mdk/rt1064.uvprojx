@@ -564,6 +564,36 @@
               <FileType>5</FileType>
               <FilePath>..\code\ring.h</FilePath>
             </File>
+            <File>
+              <FileName>some_strategy.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\code\some_strategy.h</FilePath>
+            </File>
+            <File>
+              <FileName>some_strategy.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\code\some_strategy.c</FilePath>
+            </File>
+            <File>
+              <FileName>4judge.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\code\4judge.c</FilePath>
+            </File>
+            <File>
+              <FileName>4judge.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\code\4judge.h</FilePath>
+            </File>
+            <File>
+              <FileName>box.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\code\box.c</FilePath>
+            </File>
+            <File>
+              <FileName>box.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\code\box.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

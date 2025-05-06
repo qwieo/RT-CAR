@@ -25,7 +25,7 @@ bool check_zebra(void)
 				cnt++;
 			lf=f;			
 		}				
-	if(cnt>=9)
+	if(cnt>=7)
 	return true;
 	else
 	return false;

@@ -1,6 +1,6 @@
 #ifndef __CROSS_H__
 #define	__CROSS_H__
-#define POINTS_MAX_LEN			100
+#include "Image_process.h"
 #define FAR_POINTS_MAX_LEN  (POINTS_MAX_LEN)
 enum cross_type_e {
     CROSS_NONE = 0,     //
@@ -8,16 +8,17 @@ enum cross_type_e {
     CROSS_IN,           // 
     CROSS_NUM,
 };
+
 enum track_type_e {
-    TRACK_LEFT,
+    TRACK_LEFT=0,
     TRACK_RIGHT,
 		TRACK_MIX
 };
 
 extern enum cross_type_e cross_type;
+
 extern enum track_type_e track_type;
 
-	
 extern const char *cross_type_name[CROSS_NUM];
 
 

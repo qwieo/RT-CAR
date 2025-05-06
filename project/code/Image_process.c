@@ -7,12 +7,11 @@
 *@Return        :int
 *@Sample        :clip(x,low,up);
 */
-int clip(int x, int low, int up) {
+int clip(int x, int low, int up) 
+	{
     return x > up ? up : x < low ? low : x;
-}
+	}
 
-
-#if 1
 AT_ITCM_SECTION_INIT(void clear_image(image_t *img)) {
     assert(img && img->data);
     if (img->width == img->step) {
@@ -23,7 +22,9 @@ AT_ITCM_SECTION_INIT(void clear_image(image_t *img)) {
         }
     }
 }
-
+	
+	
+	
 AT_ITCM_SECTION_INIT(void clone_image(image_t *img0, image_t *img1)) {
     assert(img0 && img0->data);
     assert(img1 && img1->data);
@@ -37,7 +38,10 @@ AT_ITCM_SECTION_INIT(void clone_image(image_t *img0, image_t *img1)) {
             memcpy(&AT(img1, 0, y), &AT(img0, 0, y), img0->width);
         }
     }
-}
+}	
+	
+#if 0	
+	
 /*
 *@Name          :adaptive_threshold
 *@Description   :adaptive_threshold and turn to binary
@@ -86,35 +90,48 @@ void draw_o(image_t *img, int x, int y, int radius, uint8_t value) {
 }
 
 
-void draw(void)
+void debug_draw(void)
 {
-//	for(uint8 i=1;i<rpts0s_num;i++)
-//	show0[clip(rptsc0[rpts0s_num-i][1],0,99)][clip(rptsc0[rpts0s_num-i][0],0,113)]=0;
-//	draw_o(&img_raw,clip(rptsc0[rpts0s_num][0],0,113),clip(rptsc0[rpts0s_num][1],0,99),4,0);
-//	for(uint8_t i=1;i<rpts1s_num;i++)
-//	show0[clip(rptsc1[rpts1s_num-i][1],0,99)][clip(rptsc1[rpts1s_num-i][0],0,113)]=0;
-//	draw_o(&img_raw,clip(rptsc1[rpts1s_num][0],0,113),clip(rptsc1[rpts1s_num][1],0,99),4,0);
-	
+
+	for(uint8 i=1;i<rptscs0_num;i++)
+	show0[clip(rptscs0[rptscs0_num-i][1],0,99)][clip(rptscs0[rptscs0_num-i][0],0,113)]=0;
+
+	for(uint8_t i=1;i<rptscs1_num;i++)
+	show0[clip(rptscs1[rptscs1_num-i][1],0,99)][clip(rptscs1[rptscs1_num-i][0],0,113)]=0;
+
 	for(uint8 i=1;i<rpts0s_num;i++)
-	ips200_draw_point(clip(rpts0s[rpts0s_num-i][0],0,99),clip(rpts0s[rpts0s_num-i][1],0,113),RGB565_GREEN);
-	draw_o(&img_raw,clip(rpts0s[rpts0s_num][0],0,113),clip(rpts0s[rpts0s_num][1],0,99),4,0);
+	show0[clip(rpts0s[rpts0s_num-i][1],0,99)][clip(rpts0s[rpts0s_num-i][0],0,113)]=0;
+
 	for(uint8_t i=1;i<rpts1s_num;i++)
-	ips200_draw_point(clip(rpts1s[rpts1s_num-i][0],0,99),clip(rpts1s[rpts1s_num-i][1],0,113),RGB565_GREEN);
-	draw_o(&img_raw,clip(rpts1s[rpts1s_num][0],0,113),clip(rpts1s[rpts1s_num][1],0,99),4,0);
+	show0[clip(rpts1s[rpts1s_num-i][1],0,99)][clip(rpts1s[rpts1s_num-i][0],0,113)]=0;
+//	for(uint8 i=1;i<rpts0s_num;i++)
+//	ips200_draw_point(clip(rpts0s[rpts0s_num-i][0],0,99),clip(rpts0s[rpts0s_num-i][1],0,113),RGB565_GREEN);
+//	draw_o(&img_raw,clip(rpts0s[rpts0s_num][0],0,113),clip(rpts0s[rpts0s_num][1],0,99),4,0);
+//	for(uint8_t i=1;i<rpts1s_num;i++)
+//	ips200_draw_point(clip(rpts1s[rpts1s_num-i][0],0,99),clip(rpts1s[rpts1s_num-i][1],0,113),RGB565_GREEN);
+//	draw_o(&img_raw,clip(rpts1s[rpts1s_num][0],0,113),clip(rpts1s[rpts1s_num][1],0,99),4,0);
 	if(Lpt0_found)
 	{
-		draw_x(&img_raw,clip(rpts0s[Lpt0_rpts0s_id][0],0,113),clip(rpts0s[Lpt0_rpts0s_id][1],0,99),6,0);
+		draw_o(&img_raw,clip(rpts0s[Lpt0_rpts0s_id][0],0,113),clip(rpts0s[Lpt0_rpts0s_id][1],0,99),4,0);
 	}
 	if(Lpt1_found)
 	{
-		draw_x(&img_raw,clip(rpts1s[Lpt1_rpts1s_id][0],0,113),clip(rpts1s[Lpt1_rpts1s_id][1],0,99),6,0);
+		draw_o(&img_raw,clip(rpts1s[Lpt1_rpts1s_id][0],0,113),clip(rpts1s[Lpt1_rpts1s_id][1],0,99),4,0);
 	}
 	
+//	if(boxe==right_box)
+//	{
+//		draw_x(&img_raw,clip(rptsc1[compaste_id][0],0,113),clip(rptsc1[compaste_id][1],0,99),4,255);
+//	}
+//	if(boxe==left_box)
+//	{
+//		draw_x(&img_raw,clip(rptsc0[compaste_id][0],0,113),clip(rptsc0[compaste_id][1],0,99),4,255);
+//	}
+//	
 	
 }
 
-void IPMcopy()
-{
+void IPMcopy(){
                 for(int i=0;i<RESULT_ROW;i++)
                 {
                     for(int j=0;j<RESULT_COL;j++)
@@ -126,6 +143,8 @@ void IPMcopy()
 
 #endif
 #if 1
+
+
 AT_ITCM_SECTION_INIT(void dilate3(image_t *img0, image_t *img1)) {
     assert(img0 && img0->data);
     assert(img1 && img1->data);

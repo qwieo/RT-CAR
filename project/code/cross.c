@@ -1,7 +1,6 @@
 #include "zf_common_headfile.h"
 #include "cross.h"
 #include "encoder.h"
-#include "Image_process.h"
 #define img_line img_AP
 enum cross_type_e cross_type = CROSS_NONE;
 enum track_type_e track_type = TRACK_MIX;
