@@ -1,4 +1,4 @@
 #LYUN Smart car 
 
-# code by Zhicheng Wang
-it's a game to chill ,don't make it stress you so much,I do this thing for learning and fun.the prize is not important thing for us.
+# code by Zhicheng Wang 
+20th Artificial Intelligence Vision, Using RTOS, NXP RT1064 
